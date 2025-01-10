@@ -8,15 +8,10 @@ const Todo = require("../models/todo.model");
 
 module.exports = {
   list: async (req, res) => {
-    // const data = await Todo.findAll()
-    // const data = await Todo.findAll({
-    //     attributes: ['title', 'description', 'priority'], // Select Fields
-    //     where: { priority: -1 } // Filters
-    // })
+    
     const data = await Todo.findAndCountAll();
 
     res.render("index");
-    
   },
 
   // CRUD ->
