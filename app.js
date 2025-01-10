@@ -20,23 +20,18 @@ app.use(express.json())
 
 // express-async-errors: catch async-errors and send to errorHandler:
 require('express-async-errors')
+
 /* ------------------------------------------------------- */
 //* Template:
 //* npm i ejs
-
-
-
-
-
-
-
-
+app.set('view engine', 'ejs')
+//* default template folder: ./views MVC MANTIĞI BURADAN GELİR!
 
 
 /* ------------------------------------------------------- */
 //* Routes:
 app.all('/',(req,res)=>{
-
+// console.log(app)
     res.send({
         error:false,
         message:'Welcome to EJS Todo Project'
