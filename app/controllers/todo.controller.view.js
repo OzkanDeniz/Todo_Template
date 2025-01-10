@@ -11,7 +11,7 @@ module.exports = {
     
     const data = await Todo.findAndCountAll();
 
-    res.render("index");
+    res.render("index", {todos:data.rows, count:data.count});
   },
 
   // CRUD ->
