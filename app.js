@@ -43,7 +43,8 @@ app.all('/',(req,res)=>{
     `)
 })
 
-app.use('/todos', require('./app/routes/todo.router'))
+app.use('/view', require('./app/routes/todo.router.api'))
+app.use('/api', require('./app/routes/todo.router.api'))
 
 /* ------------------------------------------------------- */
 const errorHandler = (err, req, res, next) => {
