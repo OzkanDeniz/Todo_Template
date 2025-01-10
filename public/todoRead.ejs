@@ -37,6 +37,15 @@
                             <td>isDone:</td>
                             <td> <%-todo.isDone ? '<span class="text-success">YES</span>' : '<span class="text-danger">YES</span>' %></td>        
                         </tr>
+                        <tr>
+                            <td>createdAt:</td>
+                            <td> <%=todo.createdAt.toISOString() %></td>        
+                        </tr>
+                        <tr>
+                            <td>updatedAt:</td>
+                            <td> <%=todo.updatedAt.toISOString() %></td>        
+                        </tr>
+                        
                         
                     
                    
