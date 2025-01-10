@@ -35,12 +35,12 @@ app.all('/',(req,res)=>{
 
 
     // res.render('index.ejs')
-    res.render('index')
+    // res.render('index')
 
-    // res.send({
-    //     error:false,
-    //     message:'Welcome to EJS Todo Project'
-    // })
+    res.send(`
+    <p><a href="/view">Todo Template</a></p>
+    <p><a href="/api">Todo RestAPI</a></p>
+    `)
 })
 
 app.use('/todos', require('./app/routes/todo.router'))
