@@ -8,7 +8,7 @@
 const router = require("express").Router();
 
 // Call todo.controller:
-const todo = require("../controllers/todo.controller.api");
+const todo = require("../controllers/todo.controller.view");
 
 // // LIST TODOS:
 // router.get('/', todo.list)
@@ -22,7 +22,9 @@ const todo = require("../controllers/todo.controller.api");
 // // DELETE TODO:
 // router.delete('/:id', todo.delete)
 
-router.route("/").get(todo.list).post(todo.create);
+router.route("/")
+.get((req,res)=>{ res.render('index') })
+.post(todo.create);
 
 router
   .route("/:id")
