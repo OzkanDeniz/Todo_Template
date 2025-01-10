@@ -31,11 +31,11 @@
                         <% for (let todo of todos) { %>
                             <tr>
                                 <td># <%=todo.id %></td>
-                                <td># <%=todo.title %></td>
-                                <td># <%=todo.description %></td>
-                                <td># <%=todo.priority %></td>
-                                <td># <%=todo.isDone %></td>
-                                <td># <%=todo.createdAt %></td>
+                                <td> <%=todo.title %></td>
+                                <td> <%=todo.description %></td>
+                                <td> <%=todo.priority %></td>
+                                <td> <%=todo.isDone %></td>
+                                <td> <%=todo.createdAt.toLocaleDateString('tr') %></td>
                             </tr>
                         <% } %>        
                     </tbody>
