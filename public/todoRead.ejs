@@ -12,20 +12,32 @@
         <hr>
         <div class="rows">
             <h2>TODO READ</h2>
-            <p>Count: <%= count %></p>
             <div class="rows">
                 <h2>TODO LIST</h2>
+
                 <table class="table table-striped">
                     
                         <tr>
-                            <th>ID</th>
-                            <th>Title</th>
-                            <th>Description</th>
-                            <th>Priority</th>
-                            <th>isDone</th>
-                            <th>CreatedAt</th>
-                            <th><a href="#" class="btn btn-primary">CREATE</a></th>
+                            <td>ID:</td>
+                            <td># <%= todo.id %></td>          
                         </tr>
+                        <tr>
+                            <td>Title:</td>
+                            <td># <%= todo.title %></td>          
+                        </tr>
+                        <tr>
+                            <td>Description:</td>
+                            <td># <%= todo.description %></td>          
+                        </tr>
+                        <tr>
+                            <td>Priority:</td>
+                            <td># <%= priorities[todo.priority] %></td>          
+                        </tr>
+                        <tr>
+                            <td>isDone:</td>
+                            <td> <%-todo.isDone ? '<span class="text-success">YES</span>' : '<span class="text-danger">YES</span>' %></td>        
+                        </tr>
+                        
                     
                    
                 </table>

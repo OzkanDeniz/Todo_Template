@@ -41,12 +41,10 @@ module.exports = {
   },
 
   read: async (req, res) => {
-    // console.log(req.params.id)
-
-    // const data = await Todo.findOne({ where: { id: req.params.id } })
+   
     const data = await Todo.findByPk(req.params.id);
 
-    res.render()
+    res.render('todoRead', {todo:data , priorities: PRIORITIES})
   },
 
   update: async (req, res) => {
