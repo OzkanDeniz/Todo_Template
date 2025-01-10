@@ -30,7 +30,12 @@
                     <tbody>
                         <% for (let todo of todos) { %>
                             <tr>
-                                <td>#***</td>
+                                <td># <%=todo.id %></td>
+                                <td># <%=todo.title %></td>
+                                <td># <%=todo.description %></td>
+                                <td># <%=todo.priority %></td>
+                                <td># <%=todo.isDone %></td>
+                                <td># <%=todo.creadetAt %></td>
                             </tr>
                         <% } %>        
                     </tbody>
