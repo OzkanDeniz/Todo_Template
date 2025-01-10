@@ -26,6 +26,7 @@ require('express-async-errors')
 //* npm i ejs
 app.set('view engine', 'ejs')
 //* default template folder: ./views MVC MANTIĞI BURADAN GELİR!
+app.set('views', './public')
 
 
 /* ------------------------------------------------------- */
