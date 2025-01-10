@@ -7,17 +7,20 @@
 const Todo = require("../models/todo.model");
 
 const PRIORITIES = {
-  '-1':'low',
-  '0':'Normal',
-  '1':'High'
-}
+  "-1": "low",
+  0: "Normal",
+  1: "High",
+};
 
 module.exports = {
   list: async (req, res) => {
-    
     const data = await Todo.findAndCountAll();
 
-    res.render("index", {todos: data.rows, count: data.count, priorities: PRIORITIES});
+    res.render("index", {
+      todos: data.rows,
+      count: data.count,
+      priorities: PRIORITIES,
+    });
   },
 
   // CRUD ->
@@ -41,10 +44,9 @@ module.exports = {
   },
 
   read: async (req, res) => {
-   
     const data = await Todo.findByPk(req.params.id);
 
-    res.render('todoRead', {todo:data , priorities: PRIORITIES})
+    res.render("todoRead", { todo: data, priorities: PRIORITIES });
   },
 
   update: async (req, res) => {
@@ -68,27 +70,15 @@ module.exports = {
   },
 
   delete: async (req, res) => {
-    // const data = await Todo.destroy({ ...where })
     const data = await Todo.destroy({ where: { id: req.params.id } });
-
-    // 204: No Content -> İçerik vermeyebilir.
-    // res.status(204).send({
-    //     error: false,
-    //     message: 'Deleted',
-    //     count: data
-    // })
 
     if (data > 0) {
       // kayıt silindiyse...
 
-      res.sendStatus(204);
+      res.redirect("/view");
+      
     } else {
       // silinemediyse...
-
-      // res.status(404).send({
-      //     error: true,
-      //     message: 'Can not Deleted. (Maybe Already deleted)'
-      // })
 
       // send to ErrorHandler:
       res.errorStatusCode = 404;
