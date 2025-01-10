@@ -33,7 +33,8 @@ app.set('view engine', 'ejs')
 app.all('/',(req,res)=>{
 
 
-    res.render('index.ejs')
+    // res.render('index.ejs')
+    res.render('index')
 
     // res.send({
     //     error:false,
