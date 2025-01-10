@@ -23,7 +23,7 @@ const todo = require("../controllers/todo.controller.view");
 // router.delete('/:id', todo.delete)
 
 router.route("/")
-.get((req,res)=>{ res.render('index') })
+.get(todo.list)
 .post(todo.create);
 
 router
