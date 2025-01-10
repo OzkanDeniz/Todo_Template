@@ -31,11 +31,14 @@ app.set('view engine', 'ejs')
 /* ------------------------------------------------------- */
 //* Routes:
 app.all('/',(req,res)=>{
-// console.log(app)
-    res.send({
-        error:false,
-        message:'Welcome to EJS Todo Project'
-    })
+
+
+    res.render('index.ejs')
+
+    // res.send({
+    //     error:false,
+    //     message:'Welcome to EJS Todo Project'
+    // })
 })
 
 app.use('/todos', require('./app/routes/todo.router'))
