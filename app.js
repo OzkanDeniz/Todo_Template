@@ -20,9 +20,28 @@ app.use(express.json())
 
 // express-async-errors: catch async-errors and send to errorHandler:
 require('express-async-errors')
+/* ------------------------------------------------------- */
+//* Template:
+//* npm i ejs
+
+
+
+
+
+
+
+
+
 
 /* ------------------------------------------------------- */
 //* Routes:
+app.all('/',(req,res)=>{
+
+    res.send({
+        error:false,
+        message:'Welcome to EJS Todo Project'
+    })
+})
 
 app.use('/todos', require('./app/routes/todo.router'))
 
