@@ -36,6 +36,7 @@ module.exports = {
   },
 
   read: async (req, res) => {
+
     const data = await Todo.findByPk(req.params.id);
 
     res.render("todoRead", { todo: data, priorities: PRIORITIES });
@@ -51,8 +52,10 @@ module.exports = {
 
     } else {
 
-      res.render("todoUpdate", { priorities: PRIORITIES });
-      
+      const data = await Todo.findByPk(req.params.id);
+
+      res.render("todoUpdate", { todo:data, priorities: PRIORITIES });
+
     }
   },
 
