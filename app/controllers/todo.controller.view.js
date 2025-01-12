@@ -26,10 +26,14 @@ module.exports = {
   // CRUD ->
 
   create: async (req, res) => {
-   console.log(req.method)
-    const data = await Todo.create(req.body);
 
-    res.render('todoCreate')
+    if (req.method === "POST") {
+
+      const data = await Todo.create(req.body);   
+
+    } else {
+      res.render("todoCreate");
+    }
   },
 
   read: async (req, res) => {
@@ -65,7 +69,6 @@ module.exports = {
       // kayıt silindiyse...
 
       res.redirect("/view");
-      
     } else {
       // silinemediyse...
 
