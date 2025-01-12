@@ -17,21 +17,28 @@
                 <form action="" method="POST">
                     <table class="table table-striped">
                         <tr>
-                        <td>Priority:</td>
-                        <td>
+                            <td>isDone:</td>
+                            <td>
+                                <select class="form-select" name="isDone" id="">                        
+                                    <option value="1" <%=todo.isDone ? 'selected' : ''%>>YES</option>
+                                    <option value="0" <%=todo.isDone ? '' : 'selected'%>>NO</option>                              
+                                </select>    
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>Priority:</td>
+                            <td>
                             <!-- for in loop kullanır key:value yakalamak için! -->
-                            <select class="form-select" name="priority" id=""> 
+                                <select class="form-select" name="priority" id=""> 
                                 <% for(let key in priorities) { %>
-
                                     <option 
                                         value="<%= key %>"
                                         <%=todo.priority == key ? 'selected' : ''%>
                                         >
                                         <%= priorities[key] %>
                                     </option>
-
                                 <% } %>  
-                            </select>               
+                                </select>               
                         </td>
                         </tr>
                         <tr>
