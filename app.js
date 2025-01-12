@@ -17,7 +17,7 @@ const PORT = process.env.PORT || 8000;
 /* ------------------------------------------------------- */
 // Accept JSON data and convert to object (for API):
 app.use(express.json());
-// Accept form data and convert to object: 
+// Accept form data and convert to object:
 app.use(express.urlencoded({ extended: true }));
 
 // express-async-errors: catch async-errors and send to errorHandler:
@@ -48,13 +48,20 @@ app.use("/api", require("./app/routes/todo.router.api"));
 /* ------------------------------------------------------- */
 const errorHandler = (err, req, res, next) => {
   const errorStatusCode = res.errorStatusCode ?? 500;
-  console.log("errorHandler worked.");
-  res.status(errorStatusCode).send({
+
+  const data = {
     error: true, // special data
     message: err.message, // error string message
     cause: err.cause, // error option cause
     // stack: err.stack, // error details
-  });
+  };
+
+  if (req.originalUrl.startsWith("/api")) {
+    console.log("errorHandler worked.");
+    res.status(errorStatusCode).send();
+  } else {
+    res.render('error', {data})
+  }
 };
 app.use(errorHandler);
 /* ------------------------------------------------------- */
