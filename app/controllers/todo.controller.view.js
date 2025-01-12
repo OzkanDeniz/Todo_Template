@@ -26,21 +26,10 @@ module.exports = {
   // CRUD ->
 
   create: async (req, res) => {
-    // const receivedData = req.body
-    // console.log(receivedData)
-
-    // const data = await Todo.create({
-    //     title: receivedData.title,
-    //     description: receivedData.description,
-    //     priority: receivedData.priority,
-    //     isDone: receivedData.isDone
-    // })
+   
     const data = await Todo.create(req.body);
 
-    res.status(201).send({
-      error: false,
-      result: data,
-    });
+    
   },
 
   read: async (req, res) => {

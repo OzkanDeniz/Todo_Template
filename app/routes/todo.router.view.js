@@ -27,6 +27,8 @@ router.get("/", todo.list);
 
 router.get("/:id", todo.read);
 
+router.post("/", todo.create)
+
 router.get("/:id/delete", todo.delete);
 
 module.exports = router;
