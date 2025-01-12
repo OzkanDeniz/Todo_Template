@@ -26,8 +26,6 @@ module.exports = {
 
       const data = await Todo.create(req.body);
 
-      console.log(req.body);
-
       if (data) res.redirect("/view");
 
     } else {
