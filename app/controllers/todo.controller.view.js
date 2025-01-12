@@ -27,6 +27,8 @@ module.exports = {
 
       const data = await Todo.create(req.body);   
 
+      if(data) redirect("/view")
+
     } else {
       res.render("todoCreate",{ priorities: PRIORITIES });
     }

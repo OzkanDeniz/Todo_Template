@@ -25,7 +25,7 @@ router
 
 router.get("/", todo.list);
 
-router.get("/create", todo.create); // post methodu sadece form da çalışır o yüzden get ile değiştiririz.
+router.all("/create", todo.create); // post methodu sadece form da çalışır o yüzden get ile değiştiririz.
 
 router.get("/:id", todo.read);
 
