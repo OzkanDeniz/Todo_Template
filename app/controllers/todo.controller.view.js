@@ -26,7 +26,7 @@ module.exports = {
   // CRUD ->
 
   create: async (req, res) => {
-   
+   console.log(req.method)
     const data = await Todo.create(req.body);
 
     res.render('todoCreate')
