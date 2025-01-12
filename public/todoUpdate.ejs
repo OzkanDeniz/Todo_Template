@@ -23,7 +23,12 @@
                             <select class="form-select" name="priority" id=""> 
                                 <% for(let key in priorities) { %>
 
-                                    <option value="<%= key %>"><%= priorities[key] %></option>
+                                    <option 
+                                        value="<%= key %>"
+                                        <%=todo.priority == key ? 'selected' : ''%>
+                                        >
+                                        <%= priorities[key] %>
+                                    </option>
 
                                 <% } %>  
                             </select>               
@@ -31,11 +36,15 @@
                         </tr>
                         <tr>
                             <td>Title:</td>
-                            <td><input type="text" class="form-control" name="title"></td>
+                            <td><input type="text" value="<%=todo.title %>" class="form-control" name="title"></td>
                         </tr>
                         <tr>
                             <td>Description:</td>
-                            <td><textarea class="form-control" name="description"></textarea></td>
+                            <td>
+                                <textarea class="form-control" name="description">
+                                    <%=todo.description %>
+                                </textarea>
+                            </td>
                         </tr>
 
                     </table>
