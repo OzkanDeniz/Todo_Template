@@ -29,6 +29,8 @@ router.all("/create", todo.create); // post methodu sadece form da çalışır o
 
 router.get("/:id", todo.read);
 
+router.all("/:id/update", todo.update);
+
 router.get("/:id/delete", todo.delete);
 
 module.exports = router;

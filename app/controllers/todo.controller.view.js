@@ -16,18 +16,20 @@ module.exports = {
   list: async (req, res) => {
     const data = await Todo.findAndCountAll();
 
-    res.render("index", {todos: data.rows, count: data.count, priorities: PRIORITIES }); //todos, count and priorities index e gönderiyoruz.
+    res.render("index", {
+      todos: data.rows,
+      count: data.count,
+      priorities: PRIORITIES,
+    }); //todos, count and priorities index e gönderiyoruz.
   },
 
   // CRUD ->
 
   create: async (req, res) => {
     if (req.method === "POST") {
-
       const data = await Todo.create(req.body);
 
       if (data) res.redirect("/view");
-
     } else {
       res.render("todoCreate", { priorities: PRIORITIES });
     }
@@ -39,24 +41,19 @@ module.exports = {
     res.render("todoRead", { todo: data, priorities: PRIORITIES });
   },
 
-  update: async (req, res) => {
-    // const data = await Todo.update({ ...newData }, { ...where })
-    const data = await Todo.update(req.body, { where: { id: req.params.id } });
-    // upsert: kayıt varsa güncelle, yoksa ekle
+  update: async (req, res) => { 
 
-    // res.status(202).send({
-    //     error: false,
-    //     result: data, // kaç adet güncellendi bilgisi döner.
-    //     message: 'Updated',
-    //     new: await Todo.findByPk(req.params.id)
-    // })
+    if (req.method === "POST") {
 
-    res.status(202).send({
-      error: false,
-      result: await Todo.findByPk(req.params.id),
-      message: "Updated",
-      count: data,
-    });
+      const data = await Todo.update(req.body, { where: { id: req.params.id }});
+
+      if (data) res.redirect("/view");
+
+    } else {
+
+      res.render("todoUpdate", { priorities: PRIORITIES });
+      
+    }
   },
 
   delete: async (req, res) => {
