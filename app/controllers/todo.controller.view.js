@@ -16,21 +16,22 @@ module.exports = {
   list: async (req, res) => {
     const data = await Todo.findAndCountAll();
 
-    res.render("index", {todos: data.rows, count: data.count, priorities: PRIORITIES});  //todos, count and priorities index e gönderiyoruz.
+    res.render("index", {todos: data.rows, count: data.count, priorities: PRIORITIES }); //todos, count and priorities index e gönderiyoruz.
   },
 
   // CRUD ->
 
   create: async (req, res) => {
-
     if (req.method === "POST") {
 
-      const data = await Todo.create(req.body);   
+      const data = await Todo.create(req.body);
 
-      if(data) redirect("/view")
+      console.log(req.body);
+
+      if (data) res.redirect("/view");
 
     } else {
-      res.render("todoCreate",{ priorities: PRIORITIES });
+      res.render("todoCreate", { priorities: PRIORITIES });
     }
   },
 
