@@ -29,7 +29,7 @@ module.exports = {
    
     const data = await Todo.create(req.body);
 
-    
+    res.render('todoCreate')
   },
 
   read: async (req, res) => {
