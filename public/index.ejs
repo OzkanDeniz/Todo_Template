@@ -28,7 +28,8 @@
                         </tr>
                     </thead>
                     <tbody>
-                        <% for (let todo of todos) { %>
+                         <!-- for of Array'lerde kullanuılır! -->
+                        <% for (let todo of todos) { %>     
                             <tr>
                                 <td># <%=todo.id %></td>
                                 <td> <%=todo.title %></td>

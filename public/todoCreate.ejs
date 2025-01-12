@@ -14,7 +14,33 @@
             <h2>TODO Create</h2>
             <a href="/view" class="btn btn-link">Todo List</a>
             <div class="rows">
-                
+                <form action="" method="POST">
+                    <table class="table table-striped">
+                        <tr>
+                        <td>Priority:</td>
+                        <td>
+                            <!-- for in loop kullanır key:value yakalamak için! -->
+                            <select class="form-select" name="priority" id=""> 
+                                <% for(let key in priorities) { %>
+
+                                    <option value="<%= key %>"><%= priorities[key] %></option>
+
+                                <% } %>  
+                            </select>               
+                        </td>
+                        </tr>
+                        <tr>
+                            <td>Title:</td>
+                            <td><input type="text" class="form-control" name="title"></td>
+                        </tr>
+                        <tr>
+                            <td>Description:</td>
+                            <td><textarea class="form-control" name="description"></textarea></td>
+                        </tr>
+
+                    </table>
+                    <button class="btn btn-primary" type="submit">Create</button>
+                </form>
 
                
             </div>
